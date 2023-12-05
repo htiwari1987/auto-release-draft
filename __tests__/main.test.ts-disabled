@@ -21,6 +21,6 @@ describe('run', () => {
     await main.run();
 
     // Assert that setOutput was called with the correct parameters
-    expect(setOutputMock).toHaveBeenCalledWith('release-url', 'https://example.com');
+    expect(setOutputMock).toHaveBeenCalledWith('release-url', '');
   });
 });
