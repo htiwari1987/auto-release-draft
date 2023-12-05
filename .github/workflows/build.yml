@@ -1,0 +1,19 @@
+name: Build
+on: 
+  push:
+    branches: ["main"]
+jobs:
+  build:
+   name: Build
+   runs-on: ${{matrix.os}}
+   strategy:
+    matrix:
+     os: [ubuntu-latest]
+   steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Restore the dependencies
+      run: npm ci
+    - name: Build
+      run: npm run all
+
