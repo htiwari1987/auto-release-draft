@@ -2,6 +2,7 @@ name: Build & Test
 on: 
   push:
     branches: ["main"]
+  create:
 jobs:
   build:
    name: Build & Test
