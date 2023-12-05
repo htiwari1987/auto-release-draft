@@ -15,6 +15,7 @@ export async function run(): Promise<void> {
     let releaseUrl = ''
     const token = core.getInput('repo-token')
     const tag = event.getCreatedTag()
+    core.info(`Tag:${tag}`)
 
     if(tag && version.isSemVer(tag)) {
       const changeLog = await git.getChangesIntroducedByTag(tag)
