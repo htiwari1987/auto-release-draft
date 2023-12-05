@@ -1,16 +1,16 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
+  "name": "auto-release-draft",
+  "description": "Drafts a GitHub release with the changes introduced by a newly created version tag",
   "version": "0.0.0",
-  "author": "",
+  "author": "Himanshu Tiwari",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/htiwari1987/auto-release-draft",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/htiwari1987/auto-release-draft.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/htiwari1987/auto-release-draft/issues"
   },
   "keywords": [
     "actions",
