@@ -1,5 +1,10 @@
 import * as core from '@actions/core'
 //import { wait } from './wait'
+import * as event from './event'
+import * as version from './version'
+import * as git from './git'
+import * as github from './github'
+import { release } from 'os'
 
 /**
  * The main function for the action.
@@ -7,6 +12,19 @@ import * as core from '@actions/core'
  */
 export async function run(): Promise<void> {
   try {
+    var releaseUrl = ''
+    const token = core.getInput('repo-token')
+    const tag = event.getCreatedTag()
+
+    if(tag && version.isSemVer(tag)) {
+      const changeLog = await git.getChangesIntroducedByTag(tag)
+      releaseUrl = await github.createReleaseDraft(tag, token, changeLog)
+    }
+
+   
+
+    
+
     //const ms: string = core.getInput('milliseconds')
 
     // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
@@ -18,7 +36,7 @@ export async function run(): Promise<void> {
     //core.debug(new Date().toTimeString())
 
     // Set outputs for other workflow steps to use
-    core.setOutput('release-url', 'https://example.com')
+    core.setOutput('release-url', releaseUrl)
   } catch (error) {
     // Fail the workflow run if an error occurs
     if (error instanceof Error) core.setFailed(error.message)

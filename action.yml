@@ -7,6 +7,10 @@ branding:
   icon: 'heart'
   color: 'red'
 
+inputs:
+  repo-token:
+    description: 'The GITHUB_TOKEN used to authenticate'
+    required: true
 
 # Define your outputs here.
 outputs:
