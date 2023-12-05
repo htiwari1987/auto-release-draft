@@ -15,7 +15,7 @@ export async function getPreviousVersionTag(tag: string) : Promise<string | null
 		}
 		}
 		};
-		const exitCode=await exec('git', ['describe', '--match', 'v[0-9]*', '--abbrev=0', '--first-parent', `${tag}^`], options);
+		const exitCode=await exec('git', ['describe', '--tags', '--match', 'v[0-9]*', '--abbrev=0', '--first-parent', `${tag}^`], options);
 		core.debug(`The previous version tag is ${previousVersionTag}`);
 		return exitCode === 0 ? previousVersionTag.trim() : null
 }
