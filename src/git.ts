@@ -29,7 +29,7 @@ export async function getCommitMessagesBetween(firstTag: string, secondTag: stri
 		}
 		}
 		};
-		const exitCode=await exec('git', ['log', '--format=%s', `${firstTag}..${secondTag} `], options);
+		await exec('git', ['log', '--format=%s', `${firstTag}..${secondTag} `], options);
 		core.debug(`The commit messages between version ${firstTag} and ${secondTag} are \n${commitMessagesBetween}`);
 		return commitMessagesBetween.trim()
 }

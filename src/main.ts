@@ -4,7 +4,7 @@ import * as event from './event'
 import * as version from './version'
 import * as git from './git'
 import * as github from './github'
-import { release } from 'os'
+//import { release } from 'os'
 
 /**
  * The main function for the action.
@@ -12,7 +12,7 @@ import { release } from 'os'
  */
 export async function run(): Promise<void> {
   try {
-    var releaseUrl = ''
+    let releaseUrl = ''
     const token = core.getInput('repo-token')
     const tag = event.getCreatedTag()
 
