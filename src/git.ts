@@ -43,7 +43,7 @@ export async function getCommitMessagesFrom(tag: string) : Promise<string> {
 		}
 		}
 		};
-		const exitCode=await exec('git', ['log', '--format=%s', tag], options);
+		await exec('git', ['log', '--format=%s', tag], options);
 		core.debug(`The commit messages between version from ${tag} are \n${commitMessagesFrom}`);
 		return commitMessagesFrom.trim()
 }
